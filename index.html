@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title">
+    <title></title>
+  </head>
+  <body>
+    <div class="video" onclick="this.children[0].play();">
+      <video id='video1' autoplay webkit-playsinline loop src="Makaila_Movie.mp4" type="video/mp4"></video>
+      <svg viewBox="0 0 640 640">
+        <mask id="mask" x="0" y="0" width="100%" height="100%" >
+            <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+            <text>
+              <tspan dy="0.75em" x="0">INDIGO</tspan>
+            </text>
+          </mask>
+        <rect x="0" y="0" width="100%" height="100%" fill="#fff" mask="url(#mask)"/>
+      </svg>
+    </div>
+
+    <script>
+    (function () {
+        var vidElem = document.getElementById('video1');
+        console.log(vidElem);
+        vidElem.addEventListener("timeupdate", function () {
+            if (vidElem.currentTime > 17) {
+                vidElem.currentTime = 0;
+                vidElem.play();
+            }
+        }, false);
+    })();
+    </script>
+  </body>
+</html>
