@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title">
+    <title></title>
+  </head>
+  <body>
+    <div class="bkg-img">
+      <div class="header">
+        <div class="artwork-by-color">
+          <a id="menuToggle" href="#">ARTWORK BY COLOR</a>
+        </div>
+        <div class="logo">
+          <img src="icon.png" alt="" />
+        </div>
+        <div class="cart">
+          <div class="diamond">
+            <span>0</span>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="slider1">
+
+        </div>
+        <div class="slider2">
+
+        </div>
+      </div>
+
+      <nav id="colorNav">
+        <h6 id='close'>CLOSE</h6>
+        <div class="title">
+            <h1>ARTWORK BY COLOR</h1>
+            <span class="line"></span>
+        </div>
+        <div class="videos">
+          <a href="#">
+            <div class="video" onclick="this.children[0].play();">
+              <video id='video1' autoplay webkit-playsinline loop src="viddy.mp4" type="video/mp4"></video>
+              <svg viewBox="0 0 400 200">
+                <mask id="indigo" x="0" y="0" width="100%" height="100%" >
+                    <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+                    <text >
+
+                      <tspan dy="0.75em" x="90">INDIGO</tspan>
+
+                    </text>
+                  </mask>
+                <rect x="0" y="0" width="100%" height="100%" fill="#fff" mask="url(#indigo)"/>
+              </svg>
+            </div>
+          </a>
+          <a href="#">
+            <div class="video" onclick="this.children[0].play();">
+              <video id='video2' autoplay webkit-playsinline loop src="viddy-Burg.mp4" type="video/mp4"></video>
+              <svg viewBox="0 0 400 200">
+                <mask id="burgundy" x="0" y="0" width="100%" height="100%" >
+                    <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+                    <text >
+
+                      <tspan dy="0.75em" x="40">BURGUNDY</tspan>
+                    </text>
+                  </mask>
+                <rect x="0" y="0" width="100%" height="100%" fill="#fff" mask="url(#burgundy)"/>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <div class="bottom-nav">
+          <a href="#">ABOUT</a>
+          <a href="#">ACCOUNT</a>
+          <a href="#">SEARCH</a>
+        </div>
+
+      </nav>
+    </div>
+
+    <script>
+    (function () {
+      window.addEventListener('load', function(){
+
+        var colorMenu = document.getElementById('menuToggle');
+        var colorNav = document.getElementById('colorNav');
+        var close = document.getElementById('close');
+
+        colorMenu.addEventListener('click', function(){
+          colorNav.style.display = 'block'
+        })
+        close.addEventListener('click', function(){
+          colorNav.style.display = 'none'
+        })
+
+
+      })
+    })();
+    </script>
+  </body>
+</html>
