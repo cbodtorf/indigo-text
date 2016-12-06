@@ -31,6 +31,10 @@ h6 {
   right: 0px;
 }
 
+.gif {
+  display: none;
+}
+
 .title {
   position: absolute;
   left: 0;
@@ -243,8 +247,9 @@ nav {
     align-items: center;
     padding: 50px 50px;
     position: relative;
-    top: 200px;
-    margin-top: 15%;
+    /*top: 200px;*/
+    height: 100vh;
+    margin-top: 4%;
   }
 
   .videos a {
@@ -252,15 +257,40 @@ nav {
     display: block;
     height: auto;
   }
+
+  #close {
+    margin-right: 80px;
+  }
+
+  .title {
+    top: 27px;
+  }
 }
 @media only screen and (max-width: 769px) {
   .videos {
     padding: 50px 0;
     margin-top: 15%;
+    /*top: 200px;*/
   }
 
   .videos a {
     width: 100%;
+  }
+
+  video {
+    display: none;
+  }
+
+  .gif {
+    display: inline-block;
+  }
+
+  .artwork-by-color {
+    margin-left: 0;
+  }
+
+  .artwork-by-color span {
+    display: none;
   }
 }
 
@@ -268,4 +298,13 @@ nav {
   .bottom-nav {
     font-size: 10px;
   }
+
+  #close {
+    margin-right: 0;
+    margin-top: 15px;
+    right:0;
+    left: 0;
+    text-align: center;
+  }
+
 }
