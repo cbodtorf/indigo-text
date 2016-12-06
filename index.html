@@ -48,9 +48,11 @@
         </div>
         <div class="videos">
           <a class="indigo-link" href="#">
+
             <div class="video" onclick="this.children[0].play();">
-              <video id='video1' autoplay webkit-playsinline loop src="viddy.mp4" type="video/mp4"></video>
-              <img class='gif' src="viddy.gif" alt="" />
+              <!-- webkit-playsinline autoplay -->
+              <video id='video1' webkit-playsinline autoplay loop src="viddy.mp4" type="video/mp4" data-device="desktop"></video>
+              <img class='gif' src="viddy.gif" alt="indigo" data-still="viddy_still.jpg" data-giff="viddy.gif"/>
               <svg viewBox="0 0 400 200">
                 <mask id="indigo" x="0" y="0" width="100%" height="100%" >
                     <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
@@ -65,9 +67,11 @@
             </div>
           </a>
           <a class="burg-link" href="#">
-            <div class="video" onclick="this.children[0].play();">
-              <video id='video2' autoplay webkit-playsinline loop src="viddy-Burg.mp4" type="video/mp4"></video>
-              <img class='gif' src="viddy-Burg.gif" alt="" />
+
+            <div class="video" onclick="this.children[0].play();" >
+              <!-- webkit-playsinline autoplay -->
+              <video id='video2' webkit-playsinline autoplay loop src="viddy-Burg.mp4" type="video/mp4" data-device="desktop"></video>
+              <img class='gif' src="viddy-Burg.gif" alt="burgundy" data-still="viddy-Burg_still.jpg" data-giff="viddy-Burg.gif"/>
               <svg viewBox="0 0 400 200">
                 <mask id="burgundy" x="0" y="0" width="100%" height="100%" >
                     <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
@@ -83,7 +87,7 @@
         </div>
 
         <div class="bottom-nav">
-          <a href="#">ABOUT</a>
+          <a id='about' href="#">ABOUT</a>
           <a href="#">CONTACT</a>
           <a href="#">BLOG</a>
           <a href="#">SEARCH</a>
@@ -103,15 +107,55 @@
         var indigoClick = document.querySelector('.indigo-rect')
         var indigoText = document.querySelector('.indigo-text')
         var bod = document.querySelector('body')
-        // var vid1 = document.getElementById('video1')
-        // var vid2 = document.getElementById('video2')
-        //
-        // if(document.body.clientWidth >= 769) {
-        //   vid1.setAttribute("autoplay", true)
-        //
-        //   vid2.setAttribute("autoplay", true)
-        //   console.log(vid1, vid2);
-        // }
+        var vid1 = document.getElementById('video1')
+        var vid2 = document.getElementById('video2')
+        var vidsArr = [vid1, vid2]
+        var gif = Array.from(document.querySelectorAll('.gif'))
+        var about = document.getElementById('about')
+
+        about.addEventListener('click', function(){
+          gif.forEach(function(el, i){
+            el.src = el.dataset.giff
+          })
+        })
+
+        window.addEventListener('resize', function(){
+          if(document.body.clientWidth >= 769) {
+
+              if(vid1.dataset.device === 'mobile') {
+                vidsArr.forEach(function(vid){
+                  vid.setAttribute("autoplay", '' )
+                  vid.dataset.device = "desktop"
+                })
+                vid1.src = 'viddy.mp4'
+                vid2.src = 'viddy-Burg.mp4'
+
+            }
+
+          } else {
+            if(vid1.dataset.device !== 'mobile') {
+
+                vidsArr.forEach(function(vid, i){
+                  vid.src = ''
+                  vid.dataset.device = "mobile"
+                  gif[i].src = gif[i].dataset.still
+                })
+            }
+          }
+        })
+
+        if(document.body.clientWidth >= 769) {
+          vidsArr.forEach(function(vid){
+            vid.dataset.device = "desktop"
+          })
+
+        } else {
+          vidsArr.forEach(function(vid, i){
+            vid.src = ''
+            vid.dataset.device = "mobile"
+            gif[i].src = gif[i].dataset.still
+          })
+        }
 
         colorMenu.addEventListener('click', function(){
           colorNav.style.display = 'block'
