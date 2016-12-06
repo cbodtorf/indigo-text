@@ -81,7 +81,7 @@ h6 {
   background-color: white;
   color: black;
   margin-left: 50px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .artwork-by-color a {
   width: 100px;
@@ -92,6 +92,7 @@ h6 {
   text-decoration: none;
   font-family: helvetica;
   font-weight: 300;
+  margin-left: 50px;
 }
 
 nav {
@@ -110,7 +111,7 @@ nav {
   height: 14px;
   width: 20px;
   position: absolute;
-  left: 22px;
+  left: 67px;
   margin-top: 2px;
 }
 
@@ -132,7 +133,8 @@ nav {
 .cart {
   width: 150px;
   text-align: -webkit-center;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
+  margin-right: 20px;
 }
 .cart .diamond {
   width: 20px;
