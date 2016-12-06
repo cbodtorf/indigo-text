@@ -11,7 +11,7 @@
     <div class="bkg-img">
       <div class="header">
         <div class="artwork-by-color">
-          <a id="menuToggle" href="#">ARTWORK BY COLOR</a>
+          <a id="menuToggle" href="#"><i class="hamburger"></i>ARTWORK BY COLOR</a>
         </div>
         <div class="logo">
           <img src="icon.png" alt="" />
@@ -29,6 +29,14 @@
         <div class="slider2">
 
         </div>
+        <div class="textile">
+
+        </div>
+        <div class="footer">
+          <div class="footer-img">
+
+          </div>
+        </div>
       </div>
 
       <nav id="colorNav">
@@ -38,29 +46,29 @@
             <span class="line"></span>
         </div>
         <div class="videos">
-          <a href="#">
+          <a class="indigo-link" href="#">
             <div class="video" onclick="this.children[0].play();">
               <video id='video1' autoplay webkit-playsinline loop src="viddy.mp4" type="video/mp4"></video>
               <svg viewBox="0 0 400 200">
                 <mask id="indigo" x="0" y="0" width="100%" height="100%" >
                     <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
-                    <text >
+                    <text class="indigo-text" >
 
                       <tspan dy="0.75em" x="90">INDIGO</tspan>
 
                     </text>
                   </mask>
-                <rect x="0" y="0" width="100%" height="100%" fill="#fff" mask="url(#indigo)"/>
+                <rect class='indigo-rect' x="0" y="0" width="100%" height="100%" fill="#fff" mask="url(#indigo)"/>
               </svg>
             </div>
           </a>
-          <a href="#">
+          <a class="burg-link" href="#">
             <div class="video" onclick="this.children[0].play();">
               <video id='video2' autoplay webkit-playsinline loop src="viddy-Burg.mp4" type="video/mp4"></video>
               <svg viewBox="0 0 400 200">
                 <mask id="burgundy" x="0" y="0" width="100%" height="100%" >
                     <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
-                    <text >
+                    <text class="burg-text" >
 
                       <tspan dy="0.75em" x="40">BURGUNDY</tspan>
                     </text>
@@ -73,8 +81,10 @@
 
         <div class="bottom-nav">
           <a href="#">ABOUT</a>
-          <a href="#">ACCOUNT</a>
+          <a href="#">CONTACT</a>
+          <a href="#">BLOG</a>
           <a href="#">SEARCH</a>
+          <a href="#">ACCOUNT</a>
         </div>
 
       </nav>
@@ -87,13 +97,24 @@
         var colorMenu = document.getElementById('menuToggle');
         var colorNav = document.getElementById('colorNav');
         var close = document.getElementById('close');
+        var indigoClick = document.querySelector('.indigo-rect')
+        var indigoText = document.querySelector('.indigo-text')
+        var bod = document.querySelector('body')
 
         colorMenu.addEventListener('click', function(){
           colorNav.style.display = 'block'
+          bod.classList.add('modal-open')
         })
         close.addEventListener('click', function(){
           colorNav.style.display = 'none'
+          bod.classList.remove('modal-open')
         })
+        // indigoClick.addEventListener('mouseover', function(){
+        //   indigoText.style.textShadow = '-8px 3px 16px black'
+        // })
+        // indigoClick.addEventListener('mouseout', function(){
+        //   indigoText.style.textShadow = 'none'
+        // })
 
 
       })

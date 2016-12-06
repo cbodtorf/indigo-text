@@ -8,6 +8,11 @@
 body {
   margin: 0;
 }
+
+body.modal-open {
+    overflow: hidden;
+}
+
 h1 {
   text-align: center;
   font-family: helvetica;
@@ -22,6 +27,15 @@ h6 {
   font-family: helvetica;
   font-weight: 300;
   margin-top: 50px;
+  position: absolute;
+  right: 0px;
+}
+
+.title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
 }
 
 .video {
@@ -67,6 +81,7 @@ h6 {
   background-color: white;
   color: black;
   margin-left: 50px;
+  margin-bottom: 30px;
 }
 .artwork-by-color a {
   width: 100px;
@@ -88,9 +103,19 @@ nav {
   top: 0;
   background: rgba(255,255,255,1);
 }
+.hamburger {
+  background: url(menu-icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 14px;
+  width: 20px;
+  position: absolute;
+  left: 22px;
+  margin-top: 2px;
+}
 
 .header {
-  height: 150px;
+  height: 100px;
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
@@ -107,6 +132,7 @@ nav {
 .cart {
   width: 150px;
   text-align: -webkit-center;
+  margin-bottom: 30px;
 }
 .cart .diamond {
   width: 20px;
@@ -124,17 +150,40 @@ nav {
 }
 
 .slider1 {
-  background: url('Header.jpg');
+  background: url(Header.jpg);
   max-width: 100%;
   background-size: cover;
-  height: 400px;
+  background-repeat: no-repeat;
+  height: 50vw;
   margin-bottom: 5px;
 }
 .slider2 {
-  background: url('Grid.jpg');
+  background: url(block2.jpg);
   max-width: 100%;
-  background-size: cover;
-  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 37vw;
+}
+.textile {
+  background: url('textile.jpg');
+  background-position: center center;
+  max-width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+.footer {
+  background-color: #0c0717;
+  max-height: 300px;
+
+}
+.footer-img {
+  background: url('Footer.jpg');
+  background-position: center center;
+  max-width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 300px;
 }
 
 .videos {
@@ -143,8 +192,7 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   box-sizing: border-box;
-  padding: 50px;
-  margin-top: 15%;
+  padding: 0 50px;
 }
 .videos video {
   max-width: 100%;
@@ -152,6 +200,10 @@ nav {
 }
 .videos a {
   width: 50%;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bottom-nav {
@@ -180,28 +232,40 @@ nav {
 }
 
 #close:hover, #menuToggle:hover {
-  /*font-weight: 400;*/
   color: #afafaf;
   cursor: pointer;
 }
+
 
 @media only screen and (max-width: 1100px) {
   .videos {
     flex-direction: column;
     align-items: center;
+    padding: 50px 50px;
+    position: relative;
+    top: 200px;
+    margin-top: 15%;
   }
 
   .videos a {
     width: 80%;
+    display: block;
+    height: auto;
   }
 }
 @media only screen and (max-width: 769px) {
   .videos {
-    padding: 0;
-    margin-top: 25%;
+    padding: 50px 0;
+    margin-top: 15%;
   }
 
   .videos a {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .bottom-nav {
+    font-size: 10px;
   }
 }
