@@ -81,7 +81,6 @@ h6 {
   background-color: white;
   color: black;
   margin-left: 50px;
-  margin-bottom: 15px;
 }
 .artwork-by-color a {
   width: 100px;
@@ -133,7 +132,6 @@ nav {
 .cart {
   width: 150px;
   text-align: -webkit-center;
-  /*margin-bottom: 30px;*/
   margin-right: 20px;
 }
 .cart .diamond {
