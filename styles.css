@@ -262,7 +262,7 @@ nav {
 @media only screen and (max-width: 769px) {
   .videos {
     padding: 0;
-    margin-top: 15%;
+    /*margin-top: 15%;*/
   }
 
   .videos a {
@@ -290,6 +290,7 @@ nav {
 @media only screen and (max-width: 550px) {
   .bottom-nav {
     font-size: 10px;
+    /*line-height: 27px;*/
   }
 
   #close {
@@ -298,6 +299,13 @@ nav {
     right:0;
     left: 0;
     text-align: center;
+  }
+
+}
+@media only screen and (max-width: 400px) {
+  .bottom-nav {
+    font-size: 16px;
+    line-height: 27px;
   }
 
 }
