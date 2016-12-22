@@ -6,9 +6,11 @@
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" media="screen" title="no title">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="./WURFL.js"></script>
     <title></title>
   </head>
-  <body>
+  <body class=''>
     <div class="bkg-img">
       <div class="header">
         <div class="artwork-by-color">
@@ -51,8 +53,8 @@
 
             <div class="video" onclick="this.children[0].play();">
               <!-- webkit-playsinline autoplay -->
-              <video id='video1' webkit-playsinline autoplay loop src="indigo.mp4" type="video/mp4" data-device="desktop"></video>
-              <img class='gif' src="indigo.gif" alt="indigo" data-still="indigo.jpg" data-giff="indigo.gif"/>
+              <video id='video1' webkit-playsinline autoplay loop src="" type="video/mp4" data-device="desktop"></video>
+              <img class='gif' src="" alt="indigo" data-still="indigo.jpg" data-giff="indigo.gif"/>
               <svg viewBox="0 0 400 200">
                 <mask id="indigo" x="0" y="0" width="100%" height="100%" >
                     <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
@@ -66,21 +68,21 @@
               </svg>
             </div>
           </a>
-          <a class="burg-link" href="#">
+          <a class="rose-link" href="#">
 
             <div class="video" onclick="this.children[0].play();" >
               <!-- webkit-playsinline autoplay -->
-              <video id='video2' webkit-playsinline autoplay loop src="burgundy.mp4" type="video/mp4" data-device="desktop"></video>
-              <img class='gif' src="burgundy.gif" alt="burgundy" data-still="burgundy.jpg" data-giff="burgundy.gif"/>
+              <video id='video2' webkit-playsinline autoplay loop src="" type="video/mp4" data-device="desktop"></video>
+              <img class='gif' src="" alt="rose" data-still="rose.jpg" data-giff="rose.gif"/>
               <svg viewBox="0 0 400 200">
-                <mask id="burgundy" x="0" y="0" width="100%" height="100%" >
+                <mask id="rose" x="0" y="0" width="100%" height="100%" >
                     <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
                     <text class="burg-text" >
 
-                      <tspan dy="0.75em" x="40">BURGUNDY</tspan>
+                      <tspan dy="0.75em" x="120">ROSE</tspan>
                     </text>
                   </mask>
-                <rect x="0" y="0" width="100%" height="100%" fill="#fff" mask="url(#burgundy)"/>
+                <rect x="0" y="0" width="100%" height="100%" fill="#fff" mask="url(#rose)"/>
               </svg>
             </div>
           </a>
@@ -99,76 +101,92 @@
 
     <script>
     (function () {
+
       window.addEventListener('load', function(){
 
         var colorMenu = document.getElementById('menuToggle');
         var colorNav = document.getElementById('colorNav');
         var close = document.getElementById('close');
-        var indigoClick = document.querySelector('.indigo-rect')
-        var indigoText = document.querySelector('.indigo-text')
         var bod = document.querySelector('body')
-        var vid1 = document.getElementById('video1')
-        var vid2 = document.getElementById('video2')
-        var vidsArr = [vid1, vid2]
-        var gif = Array.from(document.querySelectorAll('.gif'))
-        var about = document.getElementById('about')
-
-        about.addEventListener('click', function(){
-          gif.forEach(function(el, i){
-            el.src = el.dataset.giff
-          })
-        })
-
-        window.addEventListener('resize', function(){
-          if(document.body.clientWidth >= 769) {
-
-              if(vid1.dataset.device === 'mobile') {
-                vidsArr.forEach(function(vid){
-                  vid.setAttribute("autoplay", '' )
-                  vid.dataset.device = "desktop"
-                })
-                vid1.src = 'indigo.mp4'
-                vid2.src = 'burgundy.mp4'
-
-            }
-
-          } else {
-            if(vid1.dataset.device !== 'mobile') {
-
-                vidsArr.forEach(function(vid, i){
-                  vid.src = ''
-                  vid.dataset.device = "mobile"
-                  gif[i].src = gif[i].dataset.still
-                })
-            }
-          }
-        })
-
-        if(document.body.clientWidth >= 769) {
-          vidsArr.forEach(function(vid){
-            vid.dataset.device = "desktop"
-          })
-
-        } else {
-          vidsArr.forEach(function(vid, i){
-            vid.src = ''
-            vid.dataset.device = "mobile"
-            gif[i].src = gif[i].dataset.still
-          })
-        }
 
         colorMenu.addEventListener('click', function(){
           colorNav.style.display = 'block'
           bod.classList.add('modal-open')
         })
+
         close.addEventListener('click', function(){
           colorNav.style.display = 'none'
           bod.classList.remove('modal-open')
         })
 
 
+        // window.addEventListener('resize', function(){
+        //   if(document.body.clientWidth >= 769) {
+        //
+        //       if(vid1.dataset.device === 'mobile') {
+        //         vidArr.forEach(function(vid){
+        //           vid.setAttribute("autoplay", '' )
+        //           vid.dataset.device = "desktop"
+        //         })
+        //         vid1.src = 'indigo.mp4'
+        //         vid2.src = 'rose.mp4'
+        //
+        //     }
+        //
+        //   } else {
+        //     if(vid1.dataset.device !== 'mobile') {
+        //
+        //         vidsArr.forEach(function(vid, i){
+        //           vid.src = ''
+        //           vid.dataset.device = "mobile"
+        //           gif[i].src = gif[i].dataset.still
+        //         })
+        //     }
+        //   }
+        // })
+        //
+        // if(document.body.clientWidth >= 769) {
+        //   vidArr.forEach(function(vid){
+        //     vid.dataset.device = "desktop"
+        //   })
+        //
+        // } else {
+        //   vidArr.forEach(function(vid, i){
+        //     vid.src = ''
+        //     vid.dataset.device = "mobile"
+        //     gif[i].src = gif[i].dataset.still
+        //   })
+        // }
+
 
       })
+
+      var vidArr = Array.from(document.querySelectorAll('.video video'))
+      var gifArr = Array.from(document.querySelectorAll('.gif'))
+      var colors = Array.from(document.querySelectorAll('.video tspan'))
+
+      /**
+      * Dynamically loads the src of the img or video tag we decide to use based on device
+      * --- *
+      * @param array of elements to have their src loaded.
+      * @param array of elements to hide.
+      * @param string ie. '.gif' or '.mp4' depending on what media we are loading.
+      */
+      function loadSrc(ArrayToLoad, ArrayToHide, extensionString) {
+        ArrayToHide.forEach(function(element){
+          element.style.display = "none"
+        })
+
+        ArrayToLoad.forEach(function(element, i){
+          element.src = colors[i].innerHTML.toLowerCase() + extensionString
+        })
+      }
+
+      if (WURFL.is_mobile === true && WURFL.form_factor === "Smartphone") {
+        loadSrc(gifArr, vidArr, '.gif')
+      } else  {
+        loadSrc(vidArr, gifArr, '.mp4')
+      }
     })();
     </script>
   </body>
